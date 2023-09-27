@@ -11,6 +11,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json()) // 파서 등록! 
 
+app.get('api',(req,res)=>{
+  res.header("Access-Control-Allow-Origin","https://opendict.korean.go.kr/")
+  res.send(data)
+})
+
 
 app.get('/openapi', async function (req, res) { 
   // const {url} = req.query;
