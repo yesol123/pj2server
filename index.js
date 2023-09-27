@@ -4,12 +4,21 @@ const fs = require('fs');
 const app = express()
 //fs 모듈 - readFileSync(): 읽기,WriteFileSync():쓰기
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const axios = require('axios');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json()) // 파서 등록! 
 
+
+app.get('/openapi', async function (req, res) { 
+  // const {url} = req.query;
+  
+  const a = await axios.get('https://opendict.korean.go.kr/api/search?key=4E4101E1F9C6B578FCE4D6CABE483676&target_type=search&req_type=json&part=word&q=구두')
+  console.log(a)
+  res.send(a.data)
+})
 
 app.get('/', function (req, res) { 
     const jD = fs.readFileSync('./gameData.json') 
@@ -24,4 +33,4 @@ app.post('/insert', function (req, res) {
 
 
 
-app.listen(3033)
+app.listen(3030)
