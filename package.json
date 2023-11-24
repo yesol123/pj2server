@@ -13,7 +13,8 @@
     "axios": "^1.5.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
-  },
-  "proxy":"https://opendict.korean.go.kr/"
+    "express": "^4.18.2",
+    "express-http-proxy": "^2.0.0",
+    "http-proxy-middleware": "^2.0.6"
+  }
 }
